@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration Form Design</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+    <p id="signtitle" id="registered">Sign In</p>
+    <span class="dot"></span>
+    <form class="register-form">
+      <input type="text" placeholder="user name">
+      <input type="text" placeholder="password">
+      <input type="text" placeholder="email id">
+      <button>Create</button>
+      <p class="message">Already Registered?<a href="#">Sign In</a></p>
+    </form>
+
+    <form class= "login-form">
+      <input type="text" placeholder="user name"/>
+      <input type="password" placeholder="password"/>
+      <button>Sign In</button>
+      <p class="message">Not Registered?<a href="#" onclick="myFunction()"> Register</a></p>
+  </div>
+</div>
+
+<!--<div class="signup-box">
+  <div id="sign-up">
+    <p style="color:white">Sign Up</p>
+    <p style="color:white; font-family:Roboto; font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <button>Sign Up</button>
+  </div>
+</div>-->
+
+<script>
+  function myFunction() {
+     document.getElementById("signtitle").innerHTML = "Sign Up";
+}
+</script>
+
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+
+<script>
+$('.message a').click(function(){
+$('form').animate({height: "toggle", opacity:"toggle"}, "slow");
+});
+</script>
+
+<script>
+window.onload = function () {
+
+    function validate(e) {
+        var username = document.getElementById('username');
+        if (username.value.trim() == '') {
+            username.style.backgroundColor = '#ff4c4c';
+
+            // Add a class that defines an animation
+            username.classList.add('error');
+
+            // remove the class after the animation completes
+            setTimeout(function() {
+                username.classList.remove('error');
+            }, 300);
+
+            e.preventDefault();
+        } else {
+            username.style.backgroundColor = null;
+        }
+        var password = document.getElementById('password');
+        if (password.value.trim() == '') {
+            password.style.backgroundColor = '#ff4c4c';
+
+            // Add a class that defines an animation
+            password.classList.add('error');
+
+            // remove the class after the animation completes
+            setTimeout(function() {
+                password.classList.remove('error');
+            }, 300);
+
+            e.preventDefault();
+        } else {
+            password.style.backgroundColor = null;
+        }
+    }
+    document.getElementById('login').addEventListener('submit', validate);
+}
+</script>
+
+</body>
+</html>
